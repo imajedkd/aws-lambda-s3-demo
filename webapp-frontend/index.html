@@ -1,0 +1,25 @@
+CTYPE html>
+<html>
+	<head>
+		  <meta charset="UTF-8" />
+		    <title>Majed's AWS WebApp</title>
+	</head>
+	<body style="text-align: center; font-family: Arial; padding: 50px;">
+		  <h1>🚀 Welcome to Majed's AWS WebApp</h1>
+		    <p>This static site is hosted on <strong>Amazon S3</strong> and connected to a <strong>Lambda API</strong>.</p>
+
+		      <button onclick="callLambda()">Call Lambda API</button>
+
+		        <p id="response" style="margin-top: 20px; font-size: 18px;"></p>
+
+			  <script>
+				      async function callLambda() {
+					            const response = await fetch("https://xbavpmt21d.execute-api.us-east-1.amazonaws.com/prod/");
+					            const data = await response.json();
+					            document.getElementById("response").innerText = "✅ " + data.message;
+					          }
+				        </script>
+	</body>
+</html>
+
+
